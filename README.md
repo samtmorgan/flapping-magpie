@@ -1,3 +1,3 @@
 # flapping-magpie
 
-An app for tracking KS2 spelling progress 
+An app for tracking KS2 spelling progress
