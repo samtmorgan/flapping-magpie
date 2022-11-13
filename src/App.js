@@ -1,26 +1,34 @@
 import './App.css';
-import { Wordlist } from './components/wordlist';
+// import { Wordlist } from './components/wordlist';
 // import { words } from './dataStore/words';
 import React from 'react';
 import { MainPage } from './MainPage';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+	palette: {
+		// primary: {
+		// 	main: red[500],
+		// },
+		peach: {
+			main: '#FF9B71',
+		},
+		yellow: {
+			main: '#FFFD82',
+		},
+	},
+	text: {
+		main: '#2D3047',
+	},
+});
 
 function App() {
 	return (
-		<div style={{ height: '100vh' }}>
-			<MainPage />
-		</div>
-		// <div className="App">
-		// 	<header className="App-header">
-		// 		{/* <img src={logo} className="App-logo" alt="logo" /> */}
-		// 		<p>{/* Edit <code>src/App.js</code> and save to reload. */}</p>
-		// 		{/* {words[words.length - 1].map((word, index) => (
-		// 			<div key={index}>
-		// 				{word}
-		// 			</div>
-		// 		))} */}
-		// 		<Wordlist />
-		// 	</header>
+		// <div style={{ height: '100vh', backgroundColor: '#15BD82' }}>
 		// </div>
+		<ThemeProvider theme={theme}>
+			<MainPage />
+		</ThemeProvider>
 	);
 }
 
