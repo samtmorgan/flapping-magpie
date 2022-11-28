@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useContext, useReducer, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 
@@ -6,20 +6,24 @@ import { ArrowLeftBold, ArrowRightBold } from 'mdi-material-ui';
 
 import { Wordlist } from './components/wordlist';
 import { words } from './dataStore/words';
+import { AppContext, useAppContext } from './AppContextProvider';
+
+// function init(initialIndex) {
+// 	return { wordsIndex: initialIndex };
+// }
 
 export const MainPage = () => {
-	const [wordsIndex, setWordsIndex] = useState(words.length - 1);
 	const theme = useTheme();
 
-	const handleIncrement = useCallback(() => {
-		setWordsIndex((previousState) => previousState + 1);
-	});
+	// const [state, dispatch] = useReducer(reducer, {
+	// 	wordsIndex: words.length - 1,
+	// });
 
-	const handleDecrement = useCallback(() => {
-		setWordsIndex((previousState) => previousState - 1);
-	});
+	// const { dispatch, state } = AppContext();
 
-	console.log(words.length, { wordsIndex });
+	const { wordsIndex, setWordsIndex } = useAppContext();
+
+	console.log(wordsIndex);
 
 	return (
 		<div
@@ -31,12 +35,12 @@ export const MainPage = () => {
 				position: 'absolute',
 				top: 0,
 				left: 0,
-				// backgroundColor: '#B34B25',
+				backgroundColor: '#ED217C',
 				// backgroundColor: '#FF7F50',
-				// backgroundColor: 'coral',
+				// backgroundColor: 'coral',s
 				// backgroundColor: '#14B393', //dark green
 				// backgroundColor: '#15BD82', //dark green
-				backgroundColor: theme.palette.yellow.main,
+				// backgroundColor: theme.palette.yellow.main,
 
 				display: 'flex',
 				alignItems: 'center',
@@ -65,16 +69,29 @@ export const MainPage = () => {
 					// width: '100%',
 				}}
 			>
-				<Wordlist wordData={words[wordsIndex]} />
+				<Wordlist />
 			</div>
 
 			<div>
-				<IconButton disabled={wordsIndex < 1} onClick={handleDecrement}>
+				<IconButton
+					// disabled={state.wordsIndex < 1}
+					disabled={wordsIndex < 1}
+					// onClick={handleDecrement}
+					// onClick={() => dispatch({ type: 'decrement' })}
+					onClick={() =>
+						setWordsIndex((previousState) => previousState - 1)
+					}
+				>
 					<ArrowLeftBold />
 				</IconButton>
 				<IconButton
+					// disabled={state.wordsIndex + 1 >= words.length}
 					disabled={wordsIndex + 1 >= words.length}
-					onClick={handleIncrement}
+					// onClick={handleIncrement}
+					// onClick={() => dispatch({ type: 'increment' })}
+					onClick={() =>
+						setWordsIndex((previousState) => !previousState + 1)
+					}
 				>
 					<ArrowRightBold />
 				</IconButton>

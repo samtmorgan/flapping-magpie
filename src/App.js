@@ -4,6 +4,7 @@ import './App.css';
 import React from 'react';
 import { MainPage } from './MainPage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { AppContextProvider } from './AppContextProvider';
 
 const theme = createTheme({
 	palette: {
@@ -27,7 +28,9 @@ function App() {
 		// <div style={{ height: '100vh', backgroundColor: '#15BD82' }}>
 		// </div>
 		<ThemeProvider theme={theme}>
-			<MainPage />
+			<AppContextProvider>
+				<MainPage />
+			</AppContextProvider>
 		</ThemeProvider>
 	);
 }

@@ -105,4 +105,35 @@ export let words = [
 			'moral',
 		],
 	},
+	{
+		timestamp: 1668794400,
+		words: [
+			'suddenly',
+			'carefully',
+			'finally',
+			'completely',
+			'horribly',
+			'gently',
+			'simply',
+			'politely',
+			'comically',
+			'rudely',
+		],
+	},
+	{
+		timestamp: 1669399200,
+
+		words: [
+			'overcrowded',
+			'industrial',
+			'revolution',
+			'victorian',
+			'era',
+			'sewage',
+			'Thames',
+			'canal',
+			'dock',
+			'empire',
+		],
+	},
 ];
