@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useReducer, useState } from 'react';
+import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 
@@ -6,7 +6,7 @@ import { ArrowLeftBold, ArrowRightBold } from 'mdi-material-ui';
 
 import { Wordlist } from './components/wordlist';
 import { words } from './dataStore/words';
-import { AppContext, useAppContext } from './AppContextProvider';
+import { useAppContext } from './AppContextProvider';
 
 // function init(initialIndex) {
 // 	return { wordsIndex: initialIndex };

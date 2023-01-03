@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, useTheme } from '@mui/material';
 import { format } from 'date-fns';
-import { AppContext, useAppContext } from '../AppContextProvider';
+import { useAppContext } from '../AppContextProvider';
 import { words } from '../dataStore/words';
 
 // import { words } from '../dataStore/words';

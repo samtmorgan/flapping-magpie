@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { words } from './dataStore/words';
 
 const AppContext = createContext(null);
@@ -11,18 +11,18 @@ const useAppContext = () => {
 	return context;
 };
 
-function reducer(state, action) {
-	switch (action.type) {
-		case 'increment':
-			return { wordsIndex: state.wordsIndex + 1 };
-		case 'decrement':
-			return { wordsIndex: state.wordsIndex - 1 };
-		// case 'reset':
-		// 	return init(action.payload);
-		default:
-			throw new Error();
-	}
-}
+// function reducer(state, action) {
+// 	switch (action.type) {
+// 		case 'increment':
+// 			return { wordsIndex: state.wordsIndex + 1 };
+// 		case 'decrement':
+// 			return { wordsIndex: state.wordsIndex - 1 };
+// 		// case 'reset':
+// 		// 	return init(action.payload);
+// 		default:
+// 			throw new Error();
+// 	}
+// }
 
 function AppContextProvider({ children }) {
 	// const [state, dispatch] = useReducer(reducer, {
